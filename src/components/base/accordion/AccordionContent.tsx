@@ -7,6 +7,7 @@ import { forwardRef } from 'react'
 
 import { cn } from '@/utils'
 
+import { Container } from '../container'
 import { accordionContentVariants } from './variants'
 
 type Props = ComponentPropsWithoutRef<typeof AccordionPrimitive.Content> &
@@ -21,7 +22,7 @@ export const AccordionContent = forwardRef<
     className={cn(accordionContentVariants({ className }))}
     {...props}
   >
-    <div>{children}</div>
+    <Container>{children}</Container>
   </AccordionPrimitive.Content>
 ))
 

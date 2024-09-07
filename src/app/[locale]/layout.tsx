@@ -1,7 +1,7 @@
 import '@/app/globals.css'
 
 import { NextIntlClientProvider, useMessages } from 'next-intl'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 type Props = Readonly<{
   children: ReactNode
