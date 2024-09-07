@@ -1,4 +1,5 @@
 export * from './accordion'
 export * from './container'
 export * from './paragraph'
+export * from './sonner'
 export * from './text'
