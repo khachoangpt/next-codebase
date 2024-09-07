@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports.prettier": "explicit"
+  },
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.localesPaths": ["public/messages"],
+  "i18n-ally.sourceLanguage": "en"
+}
