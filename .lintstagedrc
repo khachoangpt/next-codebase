@@ -1,0 +1,4 @@
+{
+  "./src/**/*.(ts|tsx|js)": ["pnpm eslint --fix", "pnpm prettier --write"],
+  "./src/**/*.(md|json)": "pnpm prettier --write"
+}
