@@ -4,7 +4,7 @@ import next from 'next'
 import { parse } from 'url'
 
 import { logger } from '@/configs'
-import { generateOpenApiSpecification } from '@/utils'
+import { generateOpenApiSpecification } from '@/utils/generate-openapi-specs'
 
 const bootstrap = async () => {
   const port = parseInt(process.env.PORT || '3000', 10)
