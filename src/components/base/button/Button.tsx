@@ -28,7 +28,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
       >
-        <Text className={cn({ 'opacity-0': loading })}>{children}</Text>
+        <Text
+          data-loading={loading}
+          className={cn('data-[loading=true]:opacity-0')}
+        >
+          {children}
+        </Text>
         {loading && <Loader2Icon className="absolute h-4 w-4 animate-spin" />}
       </Comp>
     )

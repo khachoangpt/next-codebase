@@ -10,6 +10,7 @@ import { cn } from '@/utils'
 
 import { Container } from '../container'
 import { Label } from '../label'
+import { Paragraph } from '../paragraph'
 
 const Form = FormProvider
 
@@ -128,7 +129,7 @@ const FormDescription = React.forwardRef<
   const { formDescriptionId } = useFormField()
 
   return (
-    <p
+    <Paragraph
       ref={ref}
       id={formDescriptionId}
       className={cn('text-sm', className)}
@@ -150,14 +151,14 @@ const FormMessage = React.forwardRef<
   }
 
   return (
-    <p
+    <Paragraph
       ref={ref}
       id={formMessageId}
       className={cn('text-sm font-medium text-error', className)}
       {...props}
     >
       {body}
-    </p>
+    </Paragraph>
   )
 })
 FormMessage.displayName = 'FormMessage'

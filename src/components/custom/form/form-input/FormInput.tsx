@@ -45,8 +45,9 @@ export const FormInput = ({
       </FormLabel>
       <FormControl>
         <Input
+          data-error={!!error}
           placeholder={placeholder ?? label}
-          className={cn(className, { 'border-destructive': !!error })}
+          className={cn('data-[error=true]:border-error', className)}
           onChange={onChange}
           value={value}
           disabled={disabled}

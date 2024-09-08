@@ -18,7 +18,7 @@ const RootLayout = ({ children, params: { locale } }: Props) => {
       <body className="antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
-          <Toaster richColors position="top-right" closeButton />
+          <Toaster richColors position="top-center" closeButton />
         </NextIntlClientProvider>
       </body>
     </html>

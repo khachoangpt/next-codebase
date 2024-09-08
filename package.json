@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "generate-sdk": "pnpm dlx @hey-api/openapi-ts && cp -f -a ./src/client/request/. ./src/client/api/core/",
-    "postinstall": "husky install"
+    "postinstall": "husky"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
