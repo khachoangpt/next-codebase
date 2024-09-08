@@ -1,0 +1,3161 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/health": {
+      "get": {
+        "operationId": "AppController_checkHealth",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "health"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/auth/resend-email-verify": {
+      "post": {
+        "operationId": "AuthController_resendEmailVerify",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResendVerifyEmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/auth/login/google": {
+      "post": {
+        "operationId": "AuthController_loginWithGoogle",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginGoogleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/auth/sign-up": {
+      "post": {
+        "operationId": "AuthController_signUp",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignUpDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/auth/verify-email": {
+      "post": {
+        "operationId": "AuthController_verifyEmail",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyEmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/auth/refresh-token": {
+      "post": {
+        "operationId": "AuthController_refreshToken",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/auth/logout": {
+      "post": {
+        "operationId": "AuthController_logout",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogoutDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/me": {
+      "get": {
+        "operationId": "UserController_getMe",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMeDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/by-tags": {
+      "get": {
+        "operationId": "UserController_searchUsersByTags",
+        "parameters": [
+          {
+            "name": "tags",
+            "required": false,
+            "in": "query",
+            "example": "[{ \"name\": \"firstName\", \"operator\": \"STRING_EQUAL\", \"value\": \"Nam\" }, { \"name\": \"birthday\", \"operator\": \"DATE_BETWEEN\", \"value\": [\"2011-10-05T14:48:00.000Z\", \"2011-10-05T14:48:00.000Z\"] }]",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fullTextSearch",
+            "required": false,
+            "in": "query",
+            "example": "{\"value\": \"Nam\", \"fields\": [\"firstName\", \"lastName\"]}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchUserByTagsResDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/my-subscription": {
+      "get": {
+        "operationId": "UserController_getMySubscription",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MySubscriptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "UserController_cancelMySubscription",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CancelSubScriptionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/detail/{id}": {
+      "get": {
+        "operationId": "UserController_getUser",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/my-profile": {
+      "patch": {
+        "operationId": "UserController_updateMyProfile",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProfileDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/avatar-url": {
+      "post": {
+        "operationId": "UserController_createAvatarPresignedUrl",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PresignedUrlReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PresignedUrlRes"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/follow": {
+      "post": {
+        "operationId": "UserController_followUser",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FollowDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/unfollow": {
+      "post": {
+        "operationId": "UserController_unfollowUser",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FollowDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/chats/mine": {
+      "get": {
+        "operationId": "ChatController_listOwnConversation",
+        "parameters": [
+          {
+            "name": "keyword",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursorId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListConversationsResDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "chats"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/chats/messages": {
+      "get": {
+        "operationId": "ChatController_listMessages",
+        "parameters": [
+          {
+            "name": "keyword",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursorId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "conversationId",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMessagesResDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "chats"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/chats/start-conversation": {
+      "post": {
+        "operationId": "ChatController_createConversation",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateConversationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateConversationResDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "chats"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/chats/{conversationId}/list-participations": {
+      "get": {
+        "operationId": "ChatController_listParticipations",
+        "parameters": [
+          {
+            "name": "conversationId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListParticipationsResDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "chats"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/chats/mark-read-all": {
+      "post": {
+        "operationId": "ChatController_markReadAll",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListParticipationsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "chats"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/chats/attachment-url": {
+      "post": {
+        "operationId": "ChatController_createAttachmentPresignedUrl",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttachmentUrlDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PresignedUrlRes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "chats"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/{id}/reviews": {
+      "get": {
+        "operationId": "ReviewController_getReviews",
+        "parameters": [
+          {
+            "name": "rate",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ReviewRate"
+            }
+          },
+          {
+            "name": "cursorId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListReviewsResDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "reviews"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/{id}/rating": {
+      "get": {
+        "operationId": "ReviewController_getRating",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TotalRatingResDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "reviews"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/reviews/create": {
+      "post": {
+        "operationId": "ReviewController_createReview",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "reviews"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/reviews/{id}": {
+      "patch": {
+        "operationId": "ReviewController_updateReview",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateReviewDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "reviews"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "ReviewController_deleteReview",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "reviews"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/users/reviews/me/{userId}": {
+      "get": {
+        "operationId": "ReviewController_getMyReviewForUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "reviews"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/site": {
+      "get": {
+        "operationId": "SiteController_getSite",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SiteInfoDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "site"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/site/seo/{url}": {
+      "get": {
+        "operationId": "SiteController_getSeo",
+        "parameters": [
+          {
+            "name": "url",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeoPageDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "site"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/webhook/stripe/{tenantId}": {
+      "post": {
+        "operationId": "WebhookController_stripeWebhook",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "webhook"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/payment/checkout-subscription": {
+      "post": {
+        "operationId": "PaymentController_createCheckoutSubscription",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckoutSubscriptionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckoutUrlDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "payment"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    },
+    "/api/v1/contact-inquiry": {
+      "post": {
+        "operationId": "ContactInquiryController_create",
+        "parameters": [
+          {
+            "name": "x-tenant-id",
+            "in": "header",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactInquiryDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "contact-inquiry"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "cache",
+          "description": "Next.js option",
+          "schema": {
+            "$ref": "#/components/schemas/NextJsOptions"
+          },
+          "required": false
+        }
+      ]
+    }
+  },
+  "info": {
+    "title": "MAT SITE API",
+    "description": "",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "Gender": {
+        "type": "string",
+        "enum": [
+          "MALE",
+          "FEMALE",
+          "OTHER"
+        ]
+      },
+      "UserInfo": {
+        "type": "object",
+        "properties": {
+          "gender": {
+            "nullable": true,
+            "$ref": "#/components/schemas/Gender"
+          },
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "verifiedEmail": {
+            "type": "boolean"
+          },
+          "memberType": {
+            "type": "string"
+          },
+          "birthday": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "required": [
+          "gender",
+          "id",
+          "email",
+          "name",
+          "firstName",
+          "lastName",
+          "verifiedEmail",
+          "memberType",
+          "birthday",
+          "avatar",
+          "bio",
+          "phoneNumber",
+          "country",
+          "city",
+          "district",
+          "address",
+          "postalCode",
+          "status",
+          "metadata"
+        ]
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserInfo"
+          }
+        },
+        "required": [
+          "accessToken",
+          "refreshToken",
+          "user"
+        ]
+      },
+      "ResendVerifyEmailDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      },
+      "LoginGoogleDto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "SignUpDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password",
+          "name"
+        ]
+      },
+      "VerifyEmailDto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "email"
+        ]
+      },
+      "RefreshTokenDto": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "accessToken",
+          "refreshToken"
+        ]
+      },
+      "LogoutDto": {
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "refreshToken"
+        ]
+      },
+      "GetMeDto": {
+        "type": "object",
+        "properties": {
+          "gender": {
+            "nullable": true,
+            "$ref": "#/components/schemas/Gender"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "verifiedEmail": {
+            "type": "boolean"
+          },
+          "memberType": {
+            "type": "string"
+          },
+          "birthday": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "required": [
+          "gender",
+          "id",
+          "name",
+          "email",
+          "firstName",
+          "lastName",
+          "verifiedEmail",
+          "memberType",
+          "birthday",
+          "avatar",
+          "bio",
+          "phoneNumber",
+          "country",
+          "city",
+          "district",
+          "address",
+          "postalCode",
+          "status",
+          "metadata"
+        ]
+      },
+      "UserTagDto": {
+        "type": "object",
+        "properties": {
+          "gender": {
+            "nullable": true,
+            "$ref": "#/components/schemas/Gender"
+          },
+          "isFollowed": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "verifiedEmail": {
+            "type": "boolean"
+          },
+          "memberType": {
+            "type": "string"
+          },
+          "birthday": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "codeExpireAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "nullable": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "deletedAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "paymentCustomerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentSubscriptionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalOneStar": {
+            "type": "number"
+          },
+          "totalTwoStar": {
+            "type": "number"
+          },
+          "totalThreeStar": {
+            "type": "number"
+          },
+          "totalFourStar": {
+            "type": "number"
+          },
+          "totalFiveStar": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "gender",
+          "isFollowed",
+          "id",
+          "tenantId",
+          "email",
+          "name",
+          "firstName",
+          "lastName",
+          "verifiedEmail",
+          "memberType",
+          "birthday",
+          "avatar",
+          "bio",
+          "phoneNumber",
+          "city",
+          "country",
+          "district",
+          "address",
+          "postalCode",
+          "status",
+          "code",
+          "codeExpireAt",
+          "metadata",
+          "createdAt",
+          "updatedAt",
+          "deletedAt",
+          "paymentCustomerId",
+          "currentSubscriptionId",
+          "totalOneStar",
+          "totalTwoStar",
+          "totalThreeStar",
+          "totalFourStar",
+          "totalFiveStar"
+        ]
+      },
+      "SearchUserByTagsResDto": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserTagDto"
+            }
+          },
+          "total": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "results",
+          "total",
+          "limit",
+          "page"
+        ]
+      },
+      "PlanInterval": {
+        "type": "string",
+        "enum": [
+          "MONTH",
+          "YEAR"
+        ]
+      },
+      "MyPlanDto": {
+        "type": "object",
+        "properties": {
+          "interval": {
+            "$ref": "#/components/schemas/PlanInterval"
+          },
+          "name": {
+            "type": "string"
+          },
+          "intervalCount": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "interval",
+          "name",
+          "intervalCount"
+        ]
+      },
+      "MySubscriptionDto": {
+        "type": "object",
+        "properties": {
+          "plan": {
+            "$ref": "#/components/schemas/MyPlanDto"
+          },
+          "expiredAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "canceledAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "plan",
+          "expiredAt",
+          "canceledAt"
+        ]
+      },
+      "MySubscriptionResponse": {
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MySubscriptionDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "subscription"
+        ]
+      },
+      "GetUserDto": {
+        "type": "object",
+        "properties": {
+          "gender": {
+            "nullable": true,
+            "$ref": "#/components/schemas/Gender"
+          },
+          "isFollowed": {
+            "type": "boolean"
+          },
+          "canReview": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "verifiedEmail": {
+            "type": "boolean"
+          },
+          "memberType": {
+            "type": "string"
+          },
+          "birthday": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "required": [
+          "gender",
+          "isFollowed",
+          "canReview",
+          "id",
+          "name",
+          "email",
+          "firstName",
+          "lastName",
+          "verifiedEmail",
+          "memberType",
+          "birthday",
+          "avatar",
+          "bio",
+          "phoneNumber",
+          "country",
+          "city",
+          "district",
+          "address",
+          "postalCode",
+          "status",
+          "metadata"
+        ]
+      },
+      "UpdateProfileDto": {
+        "type": "object",
+        "properties": {
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "name": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "birthday": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "bio": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          }
+        }
+      },
+      "PresignedUrlReq": {
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fileName"
+        ]
+      },
+      "PresignedUrlRes": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url",
+          "key"
+        ]
+      },
+      "FollowDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId"
+        ]
+      },
+      "CancelSubScriptionDto": {
+        "type": "object",
+        "properties": {
+          "keepUntilExpire": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "keepUntilExpire"
+        ]
+      },
+      "MessageType": {
+        "type": "string",
+        "enum": [
+          "EVENT",
+          "IMAGE",
+          "VIDEO",
+          "FILE",
+          "TEXT"
+        ]
+      },
+      "LastMessageDto": {
+        "type": "object",
+        "properties": {
+          "messageType": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "id": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "senderId": {
+            "type": "string"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "messageType",
+          "id",
+          "content",
+          "senderId",
+          "createdAt"
+        ]
+      },
+      "ListConversationUserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "avatar",
+          "name",
+          "email",
+          "firstName",
+          "lastName"
+        ]
+      },
+      "ParticipationDto": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/ListConversationUserDto"
+          },
+          "id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "totalUnreadMessage": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "user",
+          "id",
+          "userId",
+          "totalUnreadMessage"
+        ]
+      },
+      "ConversationDto": {
+        "type": "object",
+        "properties": {
+          "lastMessage": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LastMessageDto"
+              }
+            ]
+          },
+          "participations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParticipationDto"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "lastMessage",
+          "participations",
+          "id",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "ListConversationsResDto": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConversationDto"
+            }
+          },
+          "limit": {
+            "type": "number"
+          },
+          "cursorId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "result",
+          "limit",
+          "cursorId"
+        ]
+      },
+      "ReadByDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "userId",
+          "createdAt"
+        ]
+      },
+      "ListMessageUserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "avatar",
+          "name",
+          "firstName",
+          "lastName"
+        ]
+      },
+      "MessageDto": {
+        "type": "object",
+        "properties": {
+          "messageType": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "readByUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReadByDto"
+            }
+          },
+          "sender": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ListMessageUserDto"
+              }
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "senderId": {
+            "type": "string"
+          },
+          "conversationId": {
+            "type": "string"
+          },
+          "attachment": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "messageType",
+          "readByUsers",
+          "sender",
+          "id",
+          "content",
+          "senderId",
+          "conversationId",
+          "attachment",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "ListMessagesResDto": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageDto"
+            }
+          },
+          "limit": {
+            "type": "number"
+          },
+          "cursorId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "result",
+          "limit",
+          "cursorId"
+        ]
+      },
+      "CreateConversationDto": {
+        "type": "object",
+        "properties": {
+          "otherUserId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "otherUserId"
+        ]
+      },
+      "CreateConversationResDto": {
+        "type": "object",
+        "properties": {
+          "conversationId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "conversationId"
+        ]
+      },
+      "ListParticipationsResDto": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParticipationDto"
+            }
+          }
+        },
+        "required": [
+          "result"
+        ]
+      },
+      "ListParticipationsDto": {
+        "type": "object",
+        "properties": {
+          "conversationId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "conversationId"
+        ]
+      },
+      "AttachmentUrlDto": {
+        "type": "object",
+        "properties": {
+          "fileNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "fileNames"
+        ]
+      },
+      "ReviewRate": {
+        "type": "string",
+        "enum": [
+          "ONE_STAR",
+          "TWO_STAR",
+          "THREE_STAR",
+          "FOUR_STAR",
+          "FIVE_STAR"
+        ]
+      },
+      "CreatedUserDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "email",
+          "firstName",
+          "lastName",
+          "name",
+          "avatar"
+        ]
+      },
+      "ReviewDto": {
+        "type": "object",
+        "properties": {
+          "rate": {
+            "$ref": "#/components/schemas/ReviewRate"
+          },
+          "createUser": {
+            "$ref": "#/components/schemas/CreatedUserDto"
+          },
+          "id": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "rate",
+          "createUser",
+          "id",
+          "content",
+          "createdAt",
+          "createdBy",
+          "updatedAt"
+        ]
+      },
+      "ListReviewsResDto": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewDto"
+            }
+          },
+          "limit": {
+            "type": "number"
+          },
+          "cursorId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "results",
+          "limit",
+          "cursorId"
+        ]
+      },
+      "TotalRatingResDto": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "number"
+          },
+          "totalOneStar": {
+            "type": "number"
+          },
+          "totalTwoStar": {
+            "type": "number"
+          },
+          "totalThreeStar": {
+            "type": "number"
+          },
+          "totalFourStar": {
+            "type": "number"
+          },
+          "totalFiveStar": {
+            "type": "number"
+          },
+          "averageRate": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "total",
+          "totalOneStar",
+          "totalTwoStar",
+          "totalThreeStar",
+          "totalFourStar",
+          "totalFiveStar",
+          "averageRate"
+        ]
+      },
+      "CreateReviewDto": {
+        "type": "object",
+        "properties": {
+          "rate": {
+            "$ref": "#/components/schemas/ReviewRate"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "rate",
+          "userId"
+        ]
+      },
+      "UpdateReviewDto": {
+        "type": "object",
+        "properties": {
+          "rate": {
+            "$ref": "#/components/schemas/ReviewRate"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "ReviewResponseDto": {
+        "type": "object",
+        "properties": {
+          "review": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ReviewDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "review"
+        ]
+      },
+      "SiteInfoDto": {
+        "type": "object",
+        "properties": {
+          "favicon": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "googleClientId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "favicon",
+          "name",
+          "description",
+          "googleClientId"
+        ]
+      },
+      "SeoPageDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string"
+          },
+          "hide": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "description",
+          "keywords",
+          "image",
+          "url",
+          "hide"
+        ]
+      },
+      "CheckoutSubscriptionDto": {
+        "type": "object",
+        "properties": {
+          "priceId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "priceId"
+        ]
+      },
+      "CheckoutUrlDto": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      },
+      "CreateContactInquiryDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "content"
+        ]
+      },
+      "CacheType": {
+        "type": "string",
+        "enum": [
+          "default",
+          "force-cache",
+          "no-cache",
+          "no-store",
+          "only-if-cached",
+          "reload"
+        ],
+        "description": "Cache type"
+      },
+      "NextJsOptions": {
+        "type": "object",
+        "properties": {
+          "revalidate": {
+            "type": "number",
+            "description": "Revalidate time in seconds"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CacheType"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Cache tags"
+          }
+        }
+      }
+    }
+  }
+}
