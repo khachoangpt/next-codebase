@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        error: '#EF4444',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },

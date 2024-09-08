@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
 import createIntlMiddleware from 'next-intl/middleware'
 
 import { defaultLocale, locales } from './constants/locale'

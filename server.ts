@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import { createServer } from 'http'
 import next from 'next'
 import { parse } from 'url'
@@ -22,7 +21,7 @@ const bootstrap = async () => {
   // generate openapi
   const swaggerURL = process.env.NEXT_PUBLIC_SWAGGER_JSON_URL as string
   if (!swaggerURL) {
-    logger.warn(chalk.yellow('NEXT_PUBLIC_SWAGGER_JSON_URL is not set'))
+    logger.warn('NEXT_PUBLIC_SWAGGER_JSON_URL is not set')
   } else {
     const response = await fetch(swaggerURL)
     const swaggerJson = await response.json()
