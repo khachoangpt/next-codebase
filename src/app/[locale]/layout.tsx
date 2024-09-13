@@ -4,7 +4,7 @@ import { NextIntlClientProvider, useMessages } from 'next-intl'
 import type { ReactNode } from 'react'
 
 import { Toaster } from '@/components'
-import { getFont } from '@/configs'
+import { getFont } from '@/configs/font'
 import type { LOCALE } from '@/constants'
 import { cn } from '@/utils'
 

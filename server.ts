@@ -2,7 +2,7 @@ import { createServer } from 'http'
 import next from 'next'
 import { parse } from 'url'
 
-import { logger } from '@/configs'
+import { logger } from '@/configs/logger'
 import { generateOpenApiSpecification } from '@/utils/generate-openapi-specs'
 
 /**
