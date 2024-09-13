@@ -1,3 +1,3 @@
 import common from './en/common.json'
 
-export default { ...common } ?? {}
+export default { ...common } as const
