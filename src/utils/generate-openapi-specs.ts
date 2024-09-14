@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { writeFile } from 'node:fs/promises'
 
-import { logger } from '@/configs/logger'
-
 /**
  * Generates an OpenAPI specification for Next.js routes based on the provided OpenAPI object and type.
  *
@@ -82,26 +80,4 @@ export const generateOpenApiSpecification = async (
   clonedOpenApi.paths = Object.assign(clonedOpenApi.paths, pathsObj)
 
   await writeFile(`docs/swagger.json`, JSON.stringify(clonedOpenApi, null, 2))
-}
-
-/**
- * Fetches the OpenAPI specification from the given URL and generates code using
- * `generateOpenApiSpecification()`.
- *
- * @param {string} swaggerURL - The URL of the OpenAPI specification.
- * @returns {Promise<any>} The generated code.
- */
-export const fetchOpenApiSpec = async (swaggerURL: string): Promise<any> => {
-  if (!swaggerURL) {
-    logger.warn('SWAGGER_JSON_URL is not set')
-    return
-  }
-
-  try {
-    const response = await fetch(swaggerURL)
-    const swaggerJson = await response.json()
-    return swaggerJson
-  } catch (error) {
-    logger.warn(`Failed to fetch OpenAPI specification :: ${error}`)
-  }
 }
