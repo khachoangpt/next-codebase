@@ -1,8 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server'
-import createIntlMiddleware from 'next-intl/middleware'
 
 import type { LOCALE } from './constants'
-import { COOKIES, defaultLocale, locales, pageList } from './constants'
+import { COOKIES, defaultLocale, pageList } from './constants'
 import { findRouteByPathname } from './utils'
 
 export async function middleware(request: NextRequest) {
@@ -12,13 +11,7 @@ export async function middleware(request: NextRequest) {
     defaultLocale) as LOCALE
   const accessToken = cookies.get(COOKIES.ACCESS_TOKEN)?.value
   const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE
-  const handleI18nRouting = createIntlMiddleware({
-    locales,
-    defaultLocale,
-    localePrefix: 'as-needed',
-  })
-  const response = handleI18nRouting(request)
-
+  const response = NextResponse.next()
   // check route is exist
   const routeFound = await findRouteByPathname(url.pathname, locale)
   if (!routeFound) {
@@ -50,7 +43,7 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!api|_next|messages|images|fonts|manifest|serviceworker|favicon.ico|robots.txt).*)',
+    '/((?!api|_next|images|fonts|manifest|serviceworker|favicon.ico|robots.txt).*)',
     '/',
   ],
 }

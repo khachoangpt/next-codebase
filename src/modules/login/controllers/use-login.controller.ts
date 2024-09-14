@@ -1,11 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
 import type { SubmitHandler } from 'react-hook-form'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 import { login } from '@/actions'
 import { type LoginFormType, loginSchema } from '@/constants'
-import { useRouter } from '@/i18n'
 import { useLoginStore } from '@/store/login.store'
 
 const useLoginController = () => {
