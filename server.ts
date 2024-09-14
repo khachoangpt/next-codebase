@@ -1,53 +1,57 @@
+import '@/configs/env.ts'
+
 import { createServer } from 'http'
 import next from 'next'
 import { parse } from 'url'
 
 import { logger } from '@/configs/logger'
-import { generateOpenApiSpecification } from '@/utils/generate-openapi-specs'
+import {
+  fetchOpenApiSpec,
+  generateOpenApiSpecification,
+} from '@/utils/generate-openapi-specs'
 
-/**
- * Starts a Next.js development server and generates an OpenAPI specification.
- *
- * 1. Starts a Next.js server with `next({ dev: true })`.
- * 2. Parses the URL using `parse(req.url!, true)`.
- * 3. Handles the request using `app.getRequestHandler()`.
- * 4. Listens on the port specified in the `PORT` environment variable,
- *    defaulting to 3000.
- * 5. Logs a message indicating the port the server is listening on.
- * 6. If the `SWAGGER_JSON_URL` environment variable is set, fetches the
- *    OpenAPI specification from the URL and generates code using
- *    `generateOpenApiSpecification()`.
- * 7. Logs a message indicating whether the OpenAPI specification was
- *    generated successfully or not.
- */
 const bootstrap = async () => {
-  const app = next({ dev: true })
-  const handle = app.getRequestHandler()
-  await app.prepare()
   const port = process.env.PORT || 3000
+  const env = process.env.NODE_ENV
+  const app = next({ dev: env !== 'production' })
+  const handle = app.getRequestHandler()
 
-  createServer((req, res) => {
+  await app.prepare()
+
+  const server = createServer((req, res) => {
     const parsedUrl = parse(req.url!, true)
     handle(req, res, parsedUrl)
-  }).listen(port)
+  })
 
-  logger.info(`Server listening on port ${port}`)
-
-  // Generate Openapi
-  const swaggerURL = process.env.SWAGGER_JSON_URL as string
-  if (!swaggerURL) {
-    logger.warn('SWAGGER_JSON_URL is not set')
-    return
-  }
-
-  try {
-    const response = await fetch(swaggerURL)
-    const swaggerJson = await response.json()
-    await generateOpenApiSpecification(swaggerJson)
-    logger.info('Generated OpenAPI specification')
-  } catch (error) {
-    logger.warn(`Failed to generate OpenAPI specification :: ${error}`)
-  }
+  server
+    .listen(port)
+    .on('listening', () => handleListeningServer(port))
+    .on('error', (error) => handleServerError(error))
 }
 
+// Start the server
 bootstrap()
+
+/**
+ * Logs a message indicating the port the server is listening on, and
+ * fetches the OpenAPI specification from the `SWAGGER_JSON_URL` environment
+ * variable and generates code using `generateOpenApiSpecification()`.
+ * @param {number} port - The port number the server is listening on.
+ */
+const handleListeningServer = async (port: number) => {
+  logger.info(`Server listening on port ${port}`)
+
+  const swaggerURL = process.env.SWAGGER_JSON_URL as string
+  const openApiSpec = await fetchOpenApiSpec(swaggerURL)
+  if (!openApiSpec) return
+  await generateOpenApiSpecification(openApiSpec)
+  logger.info('Generated OpenAPI specification')
+}
+
+/**
+ * Logs an error message if the server encounters an error.
+ * @param {Error} error - The error encountered by the server.
+ */
+const handleServerError = (error: Error) => {
+  logger.error(error.message)
+}
