@@ -1,12 +1,7 @@
-import { Container } from '@/components'
-import LoginForm from '@/modules/login/components/LoginForm'
+import LoginTemplate from '@/modules/login/components/templates/LoginTemplate'
 
 const LoginPage = () => {
-  return (
-    <Container>
-      <LoginForm />
-    </Container>
-  )
+	return <LoginTemplate />
 }
 
 export default LoginPage

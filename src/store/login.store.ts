@@ -1,11 +1,17 @@
 import { create } from 'zustand'
 
-type LoginState = {
-  loadingLogin: boolean
-  setLoadingLogin: (loadingLogin: boolean) => void
+export type LoginStore = {
+	openDialogForceLogin: boolean
+	setOpenDialogForceLogin: (value: boolean) => void
 }
 
-export const useLoginStore = create<LoginState>((set) => ({
-  loadingLogin: false,
-  setLoadingLogin: (loadingLogin: boolean) => set({ loadingLogin }),
-}))
+export const useLoginStore = create<LoginStore>((set) => {
+	const setOpenDialogForceLogin = (value: boolean) => {
+		set({ openDialogForceLogin: value })
+	}
+
+	return {
+		openDialogForceLogin: false,
+		setOpenDialogForceLogin,
+	}
+})

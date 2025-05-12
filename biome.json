@@ -1,0 +1,61 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true,
+		"defaultBranch": "main"
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": ["./src/client/**/*"]
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"noExcessiveCognitiveComplexity": "off",
+				"noVoid": "error",
+				"useSimplifiedLogicExpression": "error",
+				"noBannedTypes": "off",
+				"noStaticOnlyClass": "off"
+			},
+			"suspicious": {
+				"noConsoleLog": "error"
+			},
+			"correctness": {
+				"noUnusedImports": "error",
+				"noUnusedVariables": "error",
+				"noUndeclaredVariables": "error",
+				"useExhaustiveDependencies": "off"
+			},
+			"style": {
+				"useImportType": "error"
+			},
+			"nursery": {
+				"useSortedClasses": {
+					"fix": "safe",
+					"level": "error",
+					"options": {
+						"attributes": [],
+						"functions": ["cn", "cva"]
+					}
+				}
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"indentWidth": 2,
+			"enabled": true,
+			"quoteStyle": "single",
+			"trailingCommas": "all",
+			"semicolons": "asNeeded",
+			"arrowParentheses": "always"
+		}
+	}
+}
